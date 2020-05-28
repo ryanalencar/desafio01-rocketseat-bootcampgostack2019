@@ -1,5 +1,4 @@
 # desafio01-rocketseat-bootcampgostack2019
-a challenge from rocketseat's bootcamp
 
 <h1 align="center">
     <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px" />
