@@ -1,24 +1,17 @@
 const { Router } = require("express");
+const ProjectController = require("../../controllers/ProjectController");
 
 const routes = new Router();
 
-routes.get("/", (req, res) => {
-  res.send("projects");
-});
+routes.get("/", ProjectController.list);
 
-routes.post("/projects", (req, res) => {
-  res.send("new project");
-});
+routes.post("/", ProjectController.create);
 
-routes.put("/projects/:id", (req, res) => {
-  res.send("edit project selected");
-});
+routes.put("/:id", ProjectController.edit);
 
-routes.delete("/projects/:id", (req, res) => {
-  res.send("delete project selected");
-});
+routes.delete("/:id", ProjectController.delete);
 
-routes.post("/project/:id/tasks", (req, res) => {
+routes.post("/:id/tasks", (req, res) => {
   res.send("create new task to the project selected");
 });
 
