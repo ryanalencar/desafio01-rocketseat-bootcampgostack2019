@@ -7,11 +7,10 @@ module.exports = {
 
   async create(req, res) {
     const { id, title, tasks } = await req.body;
-
     const project = {
       id,
       title,
-      tasks: [],
+      tasks,
     };
 
     projects.push(project);
@@ -27,7 +26,7 @@ module.exports = {
 
     project.title = title;
 
-    res.json(project);
+    return res.json(project);
   },
 
   async delete(req, res) {
@@ -37,12 +36,19 @@ module.exports = {
 
     projects.splice(project, 1);
 
-    res.json(projects);
+    return res.json(projects);
   },
 
   async createTask(req, res) {
     const { id } = await req.params;
+    const { title } = await req.body;
 
-    res.json({ message: `creating a new task for the project number ${id}` });
+    const project = projects.find((p) => p.id == id);
+
+    project.tasks.push(title);
+
+    return res.json(project);
   },
+
+  projects,
 };
